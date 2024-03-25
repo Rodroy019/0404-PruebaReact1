@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import getMarvelData from '../assets/getMarvel'
-import Card from 'react-bootstrap/Card'
+import getMarvelData from '../assets/js/getMarvel'
+import Cards from './Cards'
 
 const MiApi = () => {
   const [characters, setCharacters] = useState([])
@@ -27,50 +27,42 @@ const MiApi = () => {
   }, [])
 
   return (
-    <section>
-      <div>
+    <section className='container'>
+      <div id='personajes' className='section'>
         <h2>Personajes de Marvel</h2>
-        {characters.map(character => (
-          <Card key={character.id} style={{ width: '18rem' }}>
-            <Card.Img variant='top' src={`${character.thumbnail.path}.${character.thumbnail.extension}`} />
-            <Card.Body>
-              <Card.Title>{character.name}</Card.Title>
-            </Card.Body>
-          </Card>
-        ))}
+        <div className='card-container'>
+          {characters.map(character => (
+            <Cards key={character.id} img={`${character.thumbnail.path}.${character.thumbnail.extension}`} name={character.name} />
+          ))}
+        </div>
+        <hr />
       </div>
-      <div>
+      <div id='comics' className='section'>
         <h2>Comics de Marvel</h2>
-        {comics.map(comic => (
-          <Card key={comic.id} style={{ width: '18rem' }}>
-            <Card.Img variant='top' src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} />
-            <Card.Body>
-              <Card.Title>{comic.title}</Card.Title>
-            </Card.Body>
-          </Card>
-        ))}
+        <div className='card-container'>
+          {comics.map(comic => (
+            <Cards key={comic.id} img={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} name={comic.title} />
+          ))}
+        </div>
+        <hr />
       </div>
-      <div>
+      <div id='series' className='section'>
         <h2>Series de Marvel</h2>
-        {series.map(serie => (
-          <Card key={serie.id} style={{ width: '18rem' }}>
-            <Card.Img variant='top' src={`${serie.thumbnail.path}.${serie.thumbnail.extension}`} />
-            <Card.Body>
-              <Card.Title>{serie.title}</Card.Title>
-            </Card.Body>
-          </Card>
-        ))}
+        <div className='card-container'>
+          {series.map(serie => (
+            <Cards key={serie.id} img={`${serie.thumbnail.path}.${serie.thumbnail.extension}`} name={serie.title} />
+          ))}
+        </div>
+        <hr />
       </div>
-      <div>
+      <div id='eventos' className='section'>
         <h2>Eventos de Marvel</h2>
-        {events.map(event => (
-          <Card key={event.id} style={{ width: '18rem' }}>
-            <Card.Img variant='top' src={`${event.thumbnail.path}.${event.thumbnail.extension}`} />
-            <Card.Body>
-              <Card.Title>{event.title}</Card.Title>
-            </Card.Body>
-          </Card>
-        ))}
+        <div className='card-container'>
+          {events.map(event => (
+            <Cards key={event.id} img={`${event.thumbnail.path}.${event.thumbnail.extension}`} name={event.title} />
+          ))}
+        </div>
+        <hr />
       </div>
     </section>
   )
