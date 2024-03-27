@@ -2,8 +2,9 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import Form from 'react-bootstrap/Form'
+import PropTypes from 'prop-types'
 
-function Header () {
+function Header ({ onSearchChange }) {
   return (
     <Navbar bg='dark' data-bs-theme='dark' expand='lg' className='bg-body-tertiary fixed-top'>
       <Container fluid>
@@ -30,12 +31,17 @@ function Header () {
               placeholder='Buscador'
               className='me-2'
               aria-label='Search'
+              onChange={onSearchChange}
             />
           </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   )
+}
+
+Header.propTypes = {
+  onSearchChange: PropTypes.func.isRequired
 }
 
 export default Header
