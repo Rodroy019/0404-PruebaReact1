@@ -1,6 +1,7 @@
 import Card from 'react-bootstrap/Card'
 import PropTypes from 'prop-types'
 
+// Componente de tarjeta
 const Cards = (props) => {
   return (
     <div>
@@ -14,10 +15,11 @@ const Cards = (props) => {
   )
 }
 
-export default Cards
-
+// Definición de tipos de props requeridos
 Cards.propTypes = {
   id: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired
 }
+
+export default Cards
